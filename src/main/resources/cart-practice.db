@@ -1,0 +1,28 @@
+create database cartPractice;
+use cartPractice;
+
+create table cart (
+	id int primary key auto_increment,
+    name varchar(250));
+create table product (
+	id int primary key auto_increment,
+    name varchar(250));
+
+    create table cart_products (
+		cart_id int,
+        product_id int );
+
+
+ALTER TABLE cart_products ADD CONSTRAINT FK_cart FOREIGN KEY (`cart_id`) REFERENCES cart (`id`);
+ALTER TABLE cart_products ADD CONSTRAINT FK_product FOREIGN KEY (`product_id`) REFERENCES product (`id`);
+
+INSERT INTO product (name)
+VALUES ('Breadfast'),
+       ('Lunch'),
+       ('Dinner');
+ INSERT INTO cart (name)
+VALUES ('Breadfast'),
+       ('Lunch'),
+       ('Dinner');
+INSERT INTO cart_products (cart_id, product_id)
+VALUES (1, 1);
