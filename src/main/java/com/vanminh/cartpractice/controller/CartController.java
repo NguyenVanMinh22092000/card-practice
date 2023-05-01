@@ -1,5 +1,6 @@
 package com.vanminh.cartpractice.controller;
 
+import com.vanminh.cartpractice.Dto.CartDto;
 import com.vanminh.cartpractice.domain.Cart;
 import com.vanminh.cartpractice.service.CartService;
 import lombok.RequiredArgsConstructor;
@@ -19,8 +20,8 @@ public class CartController {
     private final CartService cartService;
 
     @GetMapping
-    public ResponseEntity<List<Cart>> findCarts() {
-        List<Cart> carts = cartService.findAllCarts();
+    public ResponseEntity<List<CartDto>> findCarts() {
+        List<CartDto> carts = cartService.findAllCarts();
         return ResponseEntity.ok().body(carts);
     }
 }
